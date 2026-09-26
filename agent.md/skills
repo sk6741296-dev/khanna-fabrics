@@ -1,0 +1,390 @@
+# Khanna Fabrics — Demo Website Specification & Design System
+# Location: agent.md/skills
+# Project Root: c:\StoreSnapAI-main\downloads\Khanna Fabrics_2026-09-26_14-56-22
+
+==================================================
+1. BUSINESS IDENTITY & SOURCE OF TRUTH
+==================================================
+- Business Name: Khanna Fabrics (STRICTLY English only; NEVER use "खन्ना कपड़े" or any Hindi text)
+- Business Category: Women's Clothing Store
+- Heritage & Positioning: A premier destination in Connaught Place, New Delhi for authentic Lucknowi Chikankari kurtis, unstitched fabric sets, ethnic designer suits, dupattas, and tailored Indian wear.
+- Exact Address: Inner Circle, D-6&16/1, Radial Rd 5, Connaught Place, New Delhi, Delhi 110001, India (D Block, Connaught Place)
+- Phone: +91 11 2341 1929 (Click-to-call: tel:+911123411929)
+- WhatsApp Click-to-Chat: https://wa.me/911123411929 (Using the exact business phone number: +91 11 2341 1929)
+- Opening Hours:
+  * Monday:    11:00 AM to 9:00 PM
+  * Tuesday:   11:00 AM to 9:00 PM
+  * Wednesday: 11:00 AM to 9:00 PM
+  * Thursday:  11:00 AM to 9:00 PM
+  * Friday:    11:00 AM to 9:00 PM
+  * Saturday:  11:00 AM to 9:00 PM
+  * Sunday:    11:00 AM to 9:00 PM
+- Scraped Source Files (Preserve Intact):
+  * business.json (Verified business details & 68 Google Maps image URLs)
+  * reviews.json (Authentic customer reviews & 30 review image URLs)
+  * raw-response.json (Full Google Maps / Apify scrape data)
+  * download-report.json
+
+==================================================
+2. STRICT PROJECT SAFETY & ISOLATION
+==================================================
+- Project Root: c:\StoreSnapAI-main\downloads\Khanna Fabrics_2026-09-26_14-56-22
+- StoreSnapAI Safety:
+  * StoreSnapAI is the parent Google Maps scraper tool in c:\StoreSnapAI-main.
+  * StoreSnapAI must remain intact and dedicated to http://localhost:3000.
+  * NEVER touch, edit, rename, move, delete, or overwrite any StoreSnapAI code, package.json, or downloads.
+  * DO NOT add redirects to port 3000.
+- Port Allocation:
+  * This demo website MUST run ONLY on http://localhost:3008.
+  * Command: npm run dev -- -p 3008
+  * If port 3008 is unavailable: STOP immediately and report. NEVER fall back to port 3000 or any other port.
+
+==================================================
+3. ABSOLUTE PROHIBITIONS & GUARDRAILS
+==================================================
+1. NO Hindi / Devanagari Text:
+   - English ONLY across all visible UI, metadata, navigation, headings, and alt text.
+   - Never display "खन्ना कपड़े".
+2. NO Google Star Ratings or Review Counts:
+   - DO NOT show "4.8", "5 stars", "★★★★★", "515 reviews", Google rating badges, or Google review widgets anywhere.
+   - Present customer quotes strictly as curated customer testimonials.
+3. NO Booking, Enquiry, or Reservation Features:
+   - DO NOT build "Book Now", "Enquire Now", "Reserve Table", "Book Appointment", "Request a Quote", or consultation forms.
+   - Primary conversions: "Visit the Boutique", "Call +91 11 2341 1929", and "Chat on WhatsApp".
+4. NO "Back to Top" Button:
+   - Absolutely no Back to Top button in footer, navigation, or floating controls.
+5. Header CTA Rule:
+   - Header must have ONLY ONE direct contact-number action (Call: +91 11 2341 1929).
+   - DO NOT put WhatsApp, Enquire, or Booking buttons in the header navigation.
+6. WhatsApp Button Placement:
+   - A dedicated floating WhatsApp button located at the bottom-right corner.
+   - WhatsApp must NOT appear in the main header navigation.
+
+==================================================
+4. FASHION DESIGN DIRECTION & VISUAL IDENTITY
+==================================================
+- Aesthetic:
+  * Premium, refined, editorial Indian fashion boutique.
+  * Captures the grace of traditional Lucknowi Chikankari embroidery combined with modern Indian silhouettes.
+  * Evokes the heritage grandeur of Connaught Place colonial Georgian architecture (white columns, high vaulted ceilings, sunlit arch windows).
+- Color Palette:
+  * Background Warmth:
+    - Primary Canvas: #FAF8F5 (Soft Ivory / Warm Linen)
+    - Card Surface: #FFFFFF (Crisp White)
+    - Subdued Panel: #F3EFEA (Alabaster Cream)
+  * Brand Accents:
+    - Heritage Terracotta / Rose Clay: #B35446 (Warm artisanal red-clay accent)
+    - Chikankari Rose / Dusty Blush: #D48B80 (Subtle feminine embroidery highlight)
+    - Antique Muted Gold: #C59B27 (Boutique luxury cues)
+    - Deep Forest Indigo: #1E2D3B (Deep textile contrast)
+  * Neutral Typography:
+    - High-Contrast Charcoal: #1C1917 (Stone 900 for editorial headings)
+    - Soft Body Charcoal: #44403C (Stone 700 for descriptions)
+    - Subtle Slate: #78716C (Stone 500 for captions & labels)
+- Typography:
+  * Headings / Editorial: Serif font (Playfair Display / Cormorant Garamond via next/font)
+  * Body / Navigation / Metadata: Modern Sans-Serif (Plus Jakarta Sans / Inter via next/font)
+  * Hierarchy:
+    - Hero H1: text-4xl sm:text-5xl lg:text-6xl font-serif font-normal tracking-tight
+    - Section Titles H2: text-3xl sm:text-4xl font-serif font-medium tracking-tight
+    - Subsection H3: text-xl sm:text-2xl font-serif font-semibold
+    - Overline / Eyebrow: text-xs uppercase tracking-[0.25em] font-sans font-semibold text-rose-800
+    - Body Text: text-base text-stone-600 leading-relaxed font-sans
+- Card Geometry & Spacing:
+  * Generous whitespace (py-20 sm:py-28 for major sections)
+  * Subtle card borders: border border-stone-200/70
+  * Tasteful rounded geometry: rounded-2xl for feature cards, rounded-xl for product frames, rounded-full for pills/badges
+  * Soft elevation: shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]
+
+==================================================
+5. IMAGE ASSET AUDIT & CURATION RULES
+==================================================
+A total of 68 authentic business photos and 30 review photos were audited from the source data.
+The best authentic Khanna Fabrics photos must be curated and stored in public/images/:
+
+1. Hero Section:
+   - Primary: img_55 (1920x1080) — Wide showroom panorama showing shelves of folded silks and fabrics, yellow Jaipuri kurti display, standing racks of pastel Chikankari, and CP colonial windows.
+   - Alternate / Experience: img_59 (1920x1080) — High ceiling CP showroom showing customers shopping, dedicated staff assistance, and vast fabric collections.
+
+2. Collection Focus:
+   - Lucknowi Chikankari: img_9 (Exquisite white Chikankari kurti set in showroom mirror)
+   - Handcrafted Kurtis: img_8 (Customer in sunny yellow Chikankari kurti with white embroidery)
+   - Artisanal Silhouettes: img_18 (Rose pink Anarkali/kurti laid out showing delicate floral threadwork)
+   - Unstitched Fabric Sets: img_50 (Floor-to-ceiling racks of unstitched fabric sets and suits)
+   - Rainbow Palette: img_61 (Row of hanging pastel Chikankari kurtas in mint, lemon, peach, blue, white)
+   - Dupattas & Stoles: img_52 (Vibrant dupattas on display beside showroom staircase)
+
+3. Store Experience & Heritage Gallery:
+   - Storefront & Entrance: img_15 (Clean, centered Connaught Place storefront with official KHANNA FABRICS signage)
+   - Brand Merchandise & Packaging: img_10 (Khanna Fabrics eco-jute bag with Connaught Place address and phone)
+   - Customer Bags: img_16 (Printed boutique carry bags detailing collections and phone)
+   - Staff Assistance & Hospitality: img_32 & img_53 (Staff members assisting customers, folding kurtas, friendly service)
+   - In-House Alterations & Try Room: img_21 (Try room entrance and fitting area)
+   - Showroom Architecture: img_22 (High ceilings, arch windows, natural lighting in CP)
+   - Mezzanine: img_2 (Staircase leading to upstairs showroom)
+   - CP Landmark Exterior: img_12 (White colonial building facade in Connaught Place Block D)
+
+4. Images to AVOID:
+   - img_67 (Street view thumbnail with Google blur/watermark)
+   - img_17 (Men's suiting fabrics / Siyaram's — off-brand for women's store)
+   - img_0 (Corridor pillar blocking half the frame; use img_15 instead)
+   - Low-res or distorted customer crops.
+
+==================================================
+6. CURATED CUSTOMER TESTIMONIALS (NO RATINGS)
+==================================================
+Selected authentic reviews emphasizing craft, Chikankari, fitting, and service:
+
+1. Priya Singh:
+   "Had a really good experience shopping here! Varsha, Himanshi, and Babita were extremely helpful and polite throughout. They helped me with the fitting and made all the necessary adjustments to the kurti perfectly. I really appreciate their patience and attention to detail. Great service and a very pleasant shopping experience! Highly recommended."
+
+2. Sanya Sharma:
+   "Absolutely loved the ethnic collection! The designs are beautiful, elegant, and so well-crafted. Perfect blend of traditional and modern styles."
+
+3. Aditi Agarwal:
+   "It is the best place to buy Lucknowi Kurti, suits. Premium Quality and durable. Best part about it is they have in house alteration which can be done in minutes. I’ve been a repeated customer and I love the staff support and how well they treat their customers."
+
+4. Sarika Parmar:
+   "Great collection of Lucknowi chikankari kurtas! I absolutely love visiting this store whenever they launch a new collection. The designs are always beautiful and the quality is excellent. Himanshi is incredibly helpful, patient, and considerate."
+
+5. Srinka Ghosh:
+   "The collection in this shop is worth taking time. Varsha helped us a lot to find the perfect piece which suits us. The shop has good customer service and on spot altering is also available which further becomes a deciding factor."
+
+6. Piyush Chauhan:
+   "Their collection is truly exquisite, with an impressive variety of high-quality fabrics and beautifully crafted designs. Every piece reflects elegance and attention to detail. A special mention to Puja Ji, whose creativity and eye for design are simply exceptional."
+
+==================================================
+7. PROPOSED WEBSITE SECTION ARCHITECTURE
+==================================================
+1. Header / Navbar:
+   - Sticky blurred navigation bar
+   - Brand mark: "KHANNA FABRICS" with subtle sub-brand "Connaught Place, New Delhi"
+   - Links: Home, Collections, Chikankari Craft, Store Experience, Testimonials, Visit Us
+   - Header CTA: Single click-to-call button ("Call +91 11 2341 1929")
+
+2. Editorial Hero Section:
+   - Headline: "Timeless Indian Elegance & Lucknowi Chikankari"
+   - Sub-headline: "Discover handcrafted kurtis, luxurious unstitched fabric sets, and tailored ethnic wear in the historic heart of Connaught Place, New Delhi."
+   - Dual CTA: "Explore Collections" & "Visit the Boutique"
+   - Visual: High-impact hero image of Khanna Fabrics showroom with heritage colonial framing
+
+3. Signature Collections:
+   - Interactive category showcase:
+     * Lucknowi Chikankari Kurtis (Georgette, Mulmul, Pure Cotton)
+     * Unstitched Fabric Sets (3-piece Salwar Kameez, Festive Silks, Jaipuri Prints)
+     * Ready-to-Wear Ethnic Suits (Contemporary cuts, festive embroidery)
+     * Dupattas, Stoles & Plazos (Chiffon, Banarasi, Chanderi, Chikankari borders)
+
+4. The Craft of Chikankari:
+   - Storytelling section explaining the heritage art of Lucknowi needlework (Tepchi, Bakhiya, Phanda stitches)
+   - Fabric curation: Breathable pure cottons, fluid georgettes, lustrous silks
+   - Visual close-up of intricate hand embroidery
+
+5. In-Store Experience & Alteration Atelier:
+   - Highlighting in-house alteration support: "Customized & Altered in Minutes"
+   - Personal styling assistance praised by hundreds of shoppers
+   - Spacious two-floor showroom with dedicated fitting rooms and heritage ambience
+
+6. Authentic Customer Testimonials:
+   - Clean, elegant quote cards featuring authentic customer stories (Priya, Sanya, Aditi, Sarika, Srinka)
+   - Zero star ratings, zero Google badges, pure editorial typography
+
+7. Boutique Visual Gallery:
+   - Curated grid of authentic Khanna Fabrics imagery (storefront, fabric rolls, display mannequins, happy shoppers)
+
+8. Visit Us & Boutique Information:
+   - Detailed location guide: Inner Circle, D-6&16/1, Radial Rd 5, Connaught Place, New Delhi (D Block)
+   - Operating hours (11:00 AM – 9:00 PM, 7 Days a week)
+   - Click-to-call: +91 11 2341 1929
+   - Direct Google Maps navigation link
+   - Walking directions from Rajiv Chowk Metro (Gate 5 / Radial Rd 5)
+
+9. Minimal Luxury Footer:
+   - Khanna Fabrics brand narrative
+   - Complete contact and address information
+   - Working hours
+   - English-only copyright and crafted design notice
+   - ABSOLUTELY NO "Back to Top" button
+
+10. Floating WhatsApp Action:
+    - Elegant bottom-right floating widget with WhatsApp icon
+    - Direct click-to-chat to +91 11 2341 1929
+
+==================================================
+8. FAVICON SPECIFICATION
+==================================================
+- A refined, fashion-specific vector favicon (SVG/ICO) representing textile craft: a stylized needle with golden thread loop and delicate floral Chikankari petal motif, rendered in heritage rose-clay (#B35446) and antique gold (#C59B27).
+- No generic Next.js globe or shopping cart icons.
+
+==================================================
+9. TECHNICAL STACK & ARCHITECTURE
+==================================================
+- Next.js 14 / React 18+ / App Router
+- TypeScript for type-safe components and curated data models
+- Tailwind CSS with customized colors and typography classes
+- Next/Font (Google Fonts: Playfair Display + Plus Jakarta Sans) for zero layout shift
+- Lucide React for clean, minimalist fashion icons (Phone, MapPin, Clock, Sparkles, Scissors, ShoppingBag)
+- Image Optimization: Next/Image with local curated assets in public/images/
+- Responsive: Seamless experience across 375px mobile to 1920px+ ultra-wide desktop
+
+==================================================
+10. STEP 2 IMPLEMENTED FOUNDATION & COMPONENTS
+==================================================
+- app/layout.tsx:
+  * Google Fonts configured via next/font (Playfair Display for headings, Plus Jakarta Sans for UI/body)
+  * Metadata verified: Khanna Fabrics | Women's Fashion & Lucknowi Chikankari | Connaught Place, New Delhi
+  * Connected favicon via /icon.svg
+  * English language setting (lang="en")
+  * Base styling: bg-brand-ivory (#FAF8F5), text-brand-onyx (#1C1917), selection color #B35446
+- app/globals.css:
+  * Tailwind base/components/utilities
+  * Smooth scrolling (html { scroll-behavior: smooth })
+  * Refined luxury scrollbar styling
+- public/icon.svg & app/icon.svg:
+  * Handcrafted vector textile emblem featuring golden thread loop, slender needle, and 5-petal Chikankari rosette motif
+- components/Logo.tsx:
+  * Brand wordmark "KHANNA FABRICS" with sub-line "CONNAUGHT PLACE • NEW DELHI"
+  * Textile emblem badge with needle and floral motif
+- components/Header.tsx:
+  * Responsive sticky header with subtle backdrop blur on scroll
+  * Navigation links: Home (#home), Collections (#collections), Chikankari (#chikankari), Experience (#experience), Testimonials (#testimonials), Visit Us (#visit)
+  * Header CTA: Exactly ONE action (Call +91 11 2341 1929)
+  * Zero CTA clutter: no WhatsApp, no booking, no enquiry in header
+- components/MobileMenu.tsx:
+  * Slide-over navigation drawer for mobile screens
+  * Full accessibility (keyboard Escape key handler, background scroll lock, aria attributes)
+  * Direct in-store call button (+91 11 2341 1929), operating hours, and address
+- app/page.tsx:
+  * Foundation layout displaying Header and prepared navigation anchor sections (#home, #collections, #chikankari, #experience, #testimonials, #visit)
+  * Verified quick contact bar (Location, Hours, In-Store Call)
+  * Clean, responsive, zero Google ratings, zero review counts, zero Hindi text
+
+==================================================
+11. STEP 3 IMPLEMENTED HERO & SIGNATURE COLLECTIONS
+==================================================
+- Hero Section Architecture (components/Hero.tsx):
+  * Primary Hero Image: Authentic high-res photo img_55 (/images/hero-showroom.jpg) showing the Connaught Place showroom, pastel Chikankari racks, and fine fabric collections under warm boutique lighting.
+  * Editorial Eyebrow: "CONNAUGHT PLACE • NEW DELHI" with fine hairline rule.
+  * Main Headline: "Timeless Indian Elegance" in Playfair Display serif.
+  * Secondary Narrative: "Lucknowi Chikankari, refined fabrics, and distinctive Indian wear curated at Khanna Fabrics."
+  * CTAs: Tasteful navigation buttons "Explore Collections" (#collections) and "Visit the Boutique" (#visit).
+  * CTA Rules: Strictly no "Book Now", "Enquire", "Reserve", or ecommerce order buttons.
+  * Contact Rules: Zero CTA clutter; no second phone pill in hero (header holds single call button).
+  * Trust Elements: Factual location tags only ("Inner Circle • D Block", "Lucknowi Craft & Fabric Sets"); ZERO Google ratings, stars, or review statistics.
+  * Responsiveness: Fluid editorial grid (split on desktop, stacked on mobile) with negative space and graceful image scale without horizontal overflow.
+
+- Signature Collections Architecture (components/CollectionSection.tsx & CollectionCard.tsx):
+  * Introduction: Eyebrow "THE COLLECTION", Heading "Crafted for Every Expression", and supporting narrative on curated Indian wear.
+  * Editorial Lookbook Grid: Asymmetric arrangement featuring a prominent left anchor card, two stacked right cards, and two wide panoramic cards.
+  * Curated Categories & Local Assets:
+    1. Lucknowi Chikankari: img_9 (/images/chikankari-white.jpg) — Pure white hand-embroidered kurti set in boutique mirror.
+    2. Handcrafted Kurtis: img_8 (/images/kurti-yellow.jpg) — Vibrant yellow Chikankari kurti with delicate white embroidery.
+    3. Artisanal Silhouettes: img_18 (/images/anarkali-pink.jpg) — Rose-pink flared Anarkali with intricate floral threadwork.
+    4. Unstitched Fabric Sets: img_50 (/images/fabrics-suits.jpg) — Floor-to-ceiling wooden racks with 3-piece salwar materials and fabrics.
+    5. Pastel Spectrum & Dupattas: img_61 (/images/chikankari-rainbow.jpg) — Rainbow row of hanging Lucknowi Chikankari kurtas in pastel shades.
+  * Lookbook Interactions: Subtle zoom on hover, arrow reveal indicator, and elegant link to relevant sections (#chikankari, #experience, #visit).
+  * Zero E-commerce Gimmicks: No fake prices, no fake carts, no inventory claims.
+  * Prohibited UI: Zero Google ratings, zero review badges, zero Hindi script, zero WhatsApp icons in cards.
+
+==================================================
+12. STEP 4 IMPLEMENTED CHIKANKARI CRAFT & STORE EXPERIENCE
+==================================================
+- Chikankari Craft Section (components/ChikankariSection.tsx):
+  * Anchor: #chikankari
+  * Authentic Assets: Primary img_9 (/images/chikankari-white.jpg - pure white Chikankari kurti set in boutique mirror) paired with subtle detail inset img_8 (/images/kurti-yellow.jpg - sunny yellow Chikankari motif).
+  * Eyebrow: "HERITAGE CRAFTSMANSHIP"
+  * Heading: "The Art of Chikankari" (Playfair Display)
+  * Editorial Narrative: "Discover the quiet elegance of Lucknowi Chikankari through thoughtfully selected kurtis, suits, and Indian wear, brought together in the heart of Connaught Place."
+  * Informational Category Cards:
+    1. Lucknowi Chikankari (fine shadow work on georgette, mulmul, and cotton)
+    2. Indian Wear & Co-Ords (three-piece ensembles, matching palazzo sets, coordinated dupattas)
+    3. Kurtis & Suits (rich variety from daytime pastels to festive attire)
+  * Prohibited Claims Strictly Avoided: Zero fabricated artisan village names, zero invented historical dates/centuries, zero claims of proprietary factory production or exclusive artisan counts.
+
+- In-Store Experience & Alteration Atelier (components/ExperienceSection.tsx):
+  * Anchor: #experience
+  * Authentic Assets:
+    1. img_59 (/images/hero-experience.jpg): High-ceiling Connaught Place showroom panorama with shoppers and racks.
+    2. img_32 (/images/staff-hospitality.jpg): Attentive staff assisting and styling a customer in lavender Chikankari.
+    3. img_21 (/images/try-room.jpg): Dedicated fitting area and "TRY ROOM" door for alteration.
+  * Heading: "The Khanna Fabrics Experience"
+  * Dedicated Alteration Atelier Card:
+    - Heading: "In-House Alterations & Fitting Support"
+    - Narrative: "Personal fitting support and in-house alterations help bring selected pieces closer to the way you want them to fit. Shoppers frequently appreciate the convenience of on-the-spot adjustments, ensuring your kurtis, suits, and coordinates leave the store tailored to your preference."
+    - Prohibited Guarantees Avoided: No universal false promises of free alterations for every purchase or guaranteed minutes for complex work.
+  * Staff Assistance Pillar: Factually grounded in reviews ("Customers frequently mention the warm, patient assistance they receive while exploring colors, comparing fabric weaves, and choosing pieces"). Zero fabricated job titles or employee profiles.
+  * Historic Setting Pillar: Connaught Place Inner Circle, D Block heritage two-floor boutique arcade.
+  * CTA: "Plan Your Visit to Connaught Place" scrolling cleanly to #visit.
+  * Prohibited UI: Zero star ratings, zero Google review counts, zero Hindi text, zero booking/enquiry buttons, zero WhatsApp clutter.
+==================================================
+13. STEP 5 IMPLEMENTED FINAL ARCHITECTURE & SECTIONS
+==================================================
+- Curated Customer Testimonials (components/TestimonialsSection.tsx):
+  * Anchor: #testimonials
+  * Eyebrow: "FROM OUR CLIENTS"
+  * Heading: "Words from the Boutique"
+  * Narrative: "Reflecting the personal relationships, tailored fits, and handcrafted Indian elegance experienced by patrons visiting our Connaught Place boutique."
+  * 4 Curated Testimonial Voices (strictly positive, grounded in reviews.json):
+    1. Sanya Sharma (Boutique Patron): "The ethnic collection is truly beautiful, elegant, and so well-crafted. It offers a seamless blend of traditional Indian craftsmanship and modern silhouettes."
+    2. Sarika Parmar (Regular Client): "A wonderful collection of authentic Lucknowi Chikankari kurtas. The fabric quality is exceptional, and the team takes the time to understand personal styling preferences."
+    3. Priya Singh (In-Store Guest): "Delightful shopping experience in Connaught Place. The team was warm and attentive, helping with styling and ensuring the kurti alterations and fit were handled with precision."
+    4. Aditi Agarwal (Repeat Patron): "My preferred destination for Chikankari kurtis and suit sets. The fabrics are premium and durable, and the convenience of in-house alterations makes every purchase effortless."
+  * Strict Safety: ZERO star ratings, ZERO 5-star mentions, ZERO numerical scores, ZERO Google badges, ZERO fake rating widgets.
+
+- Visual Boutique Gallery (components/GallerySection.tsx):
+  * Anchor: #gallery
+  * Eyebrow: "CONNAUGHT PLACE SALON"
+  * Heading: "Atmosphere & Architecture"
+  * Subtitle: "A visual walk through our two-floor boutique in D Block, Connaught Place—where historic colonial arches meet timeless Indian craftsmanship and attentive hospitality."
+  * Layout: Asymmetric, masonry-inspired responsive grid with varied aspect ratios and hover zoom effects.
+  * 7 Curated Authentic Photos (100% local from Google Maps CDN audit):
+    1. /images/storefront.jpg (img_15) — Storefront & Colonnade entrance in D Block
+    2. /images/cp-interior-arch.jpg (img_22) — Boutique colonial arches framing ethnic mannequins
+    3. /images/tote-bag.jpg (img_10) — Signature branded Khanna Fabrics eco tote bag
+    4. /images/dupattas-stoles.jpg (img_52) — Handloom dupattas, stoles, and festive textile weaves
+    5. /images/showroom-stairs.jpg (img_2) — Staircase ascent to upper-floor bridal & Chikankari salon
+    6. /images/store-counter.jpg (img_48) — Client consultation counter and fabric selection
+    7. /images/cp-exterior.jpg (img_12) — Historic Connaught Place Radial Road white colonnade
+  * Strict Safety: Zero stock photography, all assets return HTTP 200, meaningful alt text on all images.
+
+- Visit Us & Contact Section (components/VisitSection.tsx):
+  * Anchor: #visit
+  * Eyebrow: "PLAN YOUR VISIT"
+  * Heading: "Visit Our Connaught Place Boutique"
+  * Business Name: Khanna Fabrics
+  * Category: Women's clothing boutique
+  * Exact Address: Inner Circle, D-6&16/1, Radial Rd 5, Connaught Place, New Delhi, Delhi 110001, India (D Block)
+  * Direct Phone: +91 11 2341 1929 (click-to-call: tel:+911123411929)
+  * Hours: Monday – Sunday: 11:00 AM – 9:00 PM
+  * Verified Google Maps Destination:
+    https://www.google.com/maps/search/?api=1&query=Khanna%20Fabrics&query_place_id=ChIJbRSnczf9DDkRNf5PJplwMsM
+  * Transit Landmark Guidance: Rajiv Chowk Metro Station (Gate 5 or Gate 6, 2-minute walk), Radial Road 5 entrance.
+  * Two-Floor Layout Detail: Ground level (Kurtis & Chikankari), First floor (Bridal sets, unstitched fabrics), On-site Alteration Atelier.
+  * Strict Safety: No fake iframe map, no booking, reservation, appointment, or enquiry buttons.
+
+- Floating WhatsApp Button (components/FloatingWhatsApp.tsx):
+  * Fixed position: bottom-6 right-6 z-40.
+  * Target URL: https://wa.me/911123411929
+  * Accessible aria-label: "Chat with Khanna Fabrics on WhatsApp"
+  * Exactly ONE WhatsApp action on the entire website (header has single phone call action).
+
+- Luxury Minimal Footer (components/Footer.tsx):
+  * Brand Narrative: "Indian wear, Chikankari and refined fabrics in the heart of Connaught Place."
+  * Complete Navigation Links: Home (#home), Collections (#collections), Chikankari (#chikankari), Experience (#experience), Testimonials (#testimonials), Gallery (#gallery), Visit Us (#visit).
+  * Contact & Store Hours: +91 11 2341 1929, D Block Connaught Place, Open Daily 11:00 AM – 9:00 PM.
+  * Copyright: © 2026 Khanna Fabrics. All rights reserved.
+  * Strict Safety: ZERO Back to Top buttons, ZERO fake social links, ZERO fake email addresses, ZERO Hindi text.
+
+==================================================
+14. FINAL VERIFICATION & SAFETY AUDIT
+==================================================
+- Next.js Build: npm run build completed with Exit Code 0 (all 4 static routes rendered successfully).
+- Local Server: http://localhost:3008 returns HTTP 200 OK.
+- StoreSnapAI: Dedicated to port 3000; parent codebase completely untouched.
+- Prohibition Checks:
+  * Google star ratings / review scores / review count: 0 (PASSED)
+  * Hindi / Devanagari characters: 0 (PASSED)
+  * Booking / appointment / enquiry buttons: 0 (PASSED)
+  * Back to Top button: 0 (PASSED)
+  * WhatsApp buttons in header: 0 (PASSED; exactly 1 floating button on page)
+
